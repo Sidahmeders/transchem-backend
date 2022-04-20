@@ -1,13 +1,16 @@
 import express, { Router } from 'express'
-// import corsConfig from './cors.config.js'
+import cors from './cors.config.js'
 import { admin_ability, owner_ability, installer_ability, operator_ability } from './roles.js'
 
 const server = express()
 const router = Router()
 
-// server.use((req, res, next) => corsConfig(req, res, next))
+server.use(cors)
+server.use(express.json())
+server.use(express.urlencoded({ extended: false }))
 
-router.post('/api/login', (req, res) => {
+router.post('/login', (req, res) => {
+  console.log(req.body)
   const { email, password } = req.body
   try {
     if (!email || !password) throw Error('please fill in the required fields')
@@ -37,6 +40,8 @@ router.post('/api/login', (req, res) => {
     res.statusCode(400).json({ message: err.message })
   }
 })
+
+server.use('/api', router)
 
 const PORT = process.env.PORT || 5000
 server.listen(PORT, console.log(`server running on port ${PORT}..`))
