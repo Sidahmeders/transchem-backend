@@ -1,6 +1,6 @@
 import express from 'express'
-import cors from './cors.config.js'
-import apis from './src/routes/index.js' 
+import cors from './src/config/cors.js'
+import apis from './src/apis/routes/index.js'
 
 const server = express()
 

@@ -11,5 +11,8 @@ export const operator_ability = [
 ]
 
 export const owner_ability = [
-  { action: 'read', subject: 'owner' }
+  { action: 'read', subject: 'owner' },
+  { action: 'read', subject: 'shared' }
 ]
+
+export default { admin_ability, installer_ability, operator_ability, owner_ability }
