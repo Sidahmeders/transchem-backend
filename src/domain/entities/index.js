@@ -14,6 +14,6 @@ const makeRole = buildMakeRole({ Ability })
 // const alertsActions = new Actions({ canRead: true })
 // const permissions = [new Ability(tanksActions, 'tanks'), new Ability(alertsActions, 'alerts')]
 // const newRole = makeRole({ name: 'manager', permissions})
-// console.log(newRole.permissions, '++++')
+// console.log(newRole.name, newRole.permissions, '++++')
 
-export default Object.freeze({ makeUser, makeRole })
+export { makeUser, makeRole }

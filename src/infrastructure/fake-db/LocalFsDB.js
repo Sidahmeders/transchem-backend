@@ -1,7 +1,7 @@
-const path = require('path')
-const fs = require('fs')
+import path from 'path'
+import fs from 'fs'
 
-class LocalFsDB {
+export default class LocalFsDB {
   fakeDB = {
     users: {
       testUser1: {
@@ -31,5 +31,3 @@ class LocalFsDB {
     })
   }
 }
-
-module.exports = LocalFsDB

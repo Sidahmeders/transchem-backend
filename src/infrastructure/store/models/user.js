@@ -7,4 +7,4 @@ class User extends LocalFsDB {
   }
 }
 
-module.exports = User
+export default User

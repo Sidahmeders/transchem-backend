@@ -1,5 +1,5 @@
 export default ({ admin_ability, owner_ability, installer_ability, operator_ability }) => {
-    return async function login(req, res) {
+  return async function login(req, res) {
     console.log(req.body)
     const { email, password } = req.body
     try {

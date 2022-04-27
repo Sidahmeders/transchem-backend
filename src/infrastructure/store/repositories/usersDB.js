@@ -1,6 +1,4 @@
-import { makeUser }  from '../../../domain/entities/index.js'
-
-export default function makeUsersDB({ model }) {
+export default function makeUsersDB({ makeUser, model }) {
   return Object.freeze({
     async addUser(user) {
       await model.create({

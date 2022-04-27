@@ -1,4 +1,4 @@
-export default ({ abilities }) => {
+export default ({ usersDB }) => {
   return async function register(req, res) {
     console.log(req.body)
     const { username, email, password } = req.body

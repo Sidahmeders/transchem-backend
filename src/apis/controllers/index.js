@@ -1,10 +1,13 @@
-import abilities, { admin_ability, owner_ability, installer_ability, operator_ability } from '../../constants/abilities.js'
+import { usersDB, rolesDB } from '../../infrastructure/store/index.js'
+import { admin_ability, owner_ability, installer_ability, operator_ability } from '../../constants/abilities.js'
 
-// Controllers Imports
+// Controllers Import
 import makeRegister from './register.js'
 import makeLogin from './login.js'
+import makeListRoles from './list-roles.js'
 
-const register = makeRegister({ abilities })
+const register = makeRegister({ usersDB })
 const login = makeLogin({ admin_ability, owner_ability, installer_ability, operator_ability })
+const listRoles = makeListRoles({ rolesDB })
 
-export { login, register }
+export { login, register, listRoles }
