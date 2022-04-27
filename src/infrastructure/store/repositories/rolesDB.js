@@ -22,7 +22,8 @@ export default function makeRoleDB({ makeRole, model }) {
 
     async listRoles() {
       const roles = await model.findAll()
-      return roles.map((role) => makeRole(role))
+      return roles
+      // return roles.map((role) => makeRole(role))
     },
   })
 }
