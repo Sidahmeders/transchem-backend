@@ -25,7 +25,7 @@ export default function makeUsersDB({ model }) {
     },
 
     deleteUser(userId) {
-      model.del(userId)
+      model.delete(userId)
     },
 
     async listUsers() {
