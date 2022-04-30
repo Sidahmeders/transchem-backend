@@ -87,10 +87,9 @@ const permissions = [
 
 const buildImages = (count) => new Array(count).fill('https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg')
 
-const buildPermissions = () => permissions.map((permission) => {
+const buildPermissions = () => JSON.parse(JSON.stringify(permissions)).map((permission) => {
   const newActions = Object.keys(permission.actions).reduce((prev, curr) => ({...prev, [curr]: Boolean(Math.round(Math.random() * 1))}), {})  
-  permission.actions = newActions
-  return permission
+  return Object.assign(permission, { actions: newActions })
 })
 
 const roles = [
@@ -100,7 +99,7 @@ const roles = [
     createdByRole: 'RoleName',
     createdByUser: 'User-ID',
     imagesURL: buildImages(4),
-    permissions: buildPermissions()
+    permissions
   },
   {
     assigned_users: 7,
