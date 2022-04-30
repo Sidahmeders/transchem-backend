@@ -31,10 +31,10 @@ export default function makeRoleDB({ makeRole, model }) {
       await model.findByIdAndDelete(roleId)
     },
 
-    async listRoles(query = { name: 'installer', createdByUser: '#1234' }) {
-      // const roles = await model.find(query)
+    async listRoles(query = { createdByRole: 'Administrator', createdByUser: '#1234567' }) {
+      const roles = await model.find(query)
+      return roles
       // return roles.map((role) => makeRole(role))
-      return model.findAll() // FIXME: update this later to return roles
     },
   })
 }

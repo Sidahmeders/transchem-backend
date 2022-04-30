@@ -94,42 +94,47 @@ const buildPermissions = () => JSON.parse(JSON.stringify(permissions)).map((perm
 
 const roles = [
   {
+    id: '#1234567',
     assigned_users: 4,
     name: 'Administrator',
-    createdByRole: 'RoleName',
-    createdByUser: 'User-ID',
+    createdByRole: null,
+    createdByUser: '#1234567',
     imagesURL: buildImages(4),
     permissions
   },
   {
+    id: '#13',
     assigned_users: 7,
     name: 'Manager',
-    createdByRole: 'RoleName',
-    createdByUser: 'User-ID',
+    createdByRole: 'Administrator',
+    createdByUser: '#1234567',
     imagesURL: buildImages(7),
     permissions: buildPermissions()
   },
   {
+    id: '#45',
     assigned_users: 5,
     name: 'Users',
-    createdByRole: 'RoleName',
-    createdByUser: 'User-ID',
+    createdByRole: 'Administrator',
+    createdByUser: '#1234567',
     imagesURL: buildImages(5),
     permissions: buildPermissions()
   },
   {
+    id: '#63',
     assigned_users: 3,
     name: 'Support',
-    createdByRole: 'RoleName',
-    createdByUser: 'User-ID',
+    createdByRole: 'Administrator',
+    createdByUser: '#1234567',
     imagesURL: buildImages(3),
     permissions: buildPermissions()
   },
   {
+    id: '#89',
     assigned_users: 2,
     name: 'Restricted User',
-    createdByRole: 'RoleName',
-    createdByUser: 'User-ID',
+    createdByRole: 'Administrator',
+    createdByUser: '#1234567',
     imagesURL: buildImages(2),
     permissions: buildPermissions()
   }
@@ -141,10 +146,47 @@ class Role extends LocalFsDB {
     this.role = role
   }
 
+  #latency = 10
+
+  create(role) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        roles.push(role)
+        resolve(role)
+      }, this.#latency)
+    })
+  }
+
+  findById(id) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const result = roles.filter((role) => (role.id === id))[0]
+        resolve(result)
+      }, this.#latency)
+    })
+  }
+  
+  findOne() {}
+
+  find(query) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (Object.keys(query) === 0) resolve(roles)
+        const result = []
+        roles.forEach((role) => {
+          let isValid = true
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === role[k] && query[v] === query[v]))
+          if (isValid) result.push(role)
+        })
+        resolve(result)
+      }, this.#latency)
+    })
+  }
+
   findAll() {
-    return {
-      roles
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(roles), this.#latency)
+    })
   }
 }
 

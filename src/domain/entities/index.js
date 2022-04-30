@@ -7,7 +7,7 @@ import buildMakeUser from './makeUser.js'
 import buildMakeRole from './makeRole.js'
 
 const makeUser = buildMakeUser({ getUniqueId })
-const makeRole = buildMakeRole({ Resource })
+const makeRole = buildMakeRole({ getUniqueId })
 
 // ** small example creating a role for users
 // const tanksActions = new Actions({ canRead: true, canCreate: true })
