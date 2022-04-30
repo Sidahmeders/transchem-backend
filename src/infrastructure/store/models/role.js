@@ -1,169 +1,139 @@
 import LocalFsDB from '../../fake-db/LocalFsDB.js'
 
 // ** Vars
-const data = [
+const permissions = [
   {
-    totalUsers: 4,
-    title: 'Administrator',
-    users: [
-      {
-        size: 'sm',
-        title: 'Vinnie Mostowy',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Allen Rieske',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Julee Rossignol',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Kaith Dsouza',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      }
-    ]
+    name: 'User Management',
+    actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
   },
   {
-    totalUsers: 7,
-    title: 'Manager',
-    users: [
-      {
-        size: 'sm',
-        title: 'Jimmy Ressula',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'John Doe',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Kristi Lawker',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Kaith D',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Danny Paul',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      }
-    ]
+    name:'Content Management',
+    actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    }, 
+  },  
+  {
+    name:'Disputes Management',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
   },
   {
-    totalUsers: 5,
-    title: 'Users',
-    users: [
-      {
-        size: 'sm',
-        title: 'Andrew Tye',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Rishi Swaat',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Rossie Kim',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Kim Merchent',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Sam Dsouza',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      }
-    ]
+    name:'Database Management',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
   },
   {
-    totalUsers: 3,
-    title: 'Support',
-    users: [
-      {
-        size: 'sm',
-        title: 'Kim Karlos',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Katy Turner',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Peter Adward',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Kaith Dsouza',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'John Parker',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      }
-    ]
+    name:'Financial Management',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
   },
   {
-    totalUsers: 2,
-    title: 'Restricted User',
-    users: [
-      {
-        size: 'sm',
-        title: 'Kim Merchent',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Sam Dsouza',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Nurvi Karlos',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Andrew Tye',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      },
-      {
-        size: 'sm',
-        title: 'Rossie Kim',
-        img: 'https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg'
-      }
-    ]
+    name:'Reporting',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
+  },
+  {
+    name:'API Control',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
+  },
+  {
+    name:'Repository Management',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
+  },
+  {
+    name:'Payroll',
+     actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    },
   }
 ]
 
-const rolesArr = [
-  'User Management',
-  'Content Management',
-  'Disputes Management',
-  'Database Management',
-  'Financial Management',
-  'Reporting',
-  'API Control',
-  'Repository Management',
-  'Payroll'
+const buildImages = (count) => new Array(count).fill('https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg')
+
+const buildPermissions = () => permissions.map((permission) => {
+  const newActions = Object.keys(permission.actions).reduce((prev, curr) => ({...prev, [curr]: Boolean(Math.round(Math.random() * 1))}), {})  
+  permission.actions = newActions
+  return permission
+})
+
+const roles = [
+  {
+    assigned_users: 4,
+    name: 'Administrator',
+    createdByRole: 'RoleName',
+    createdByUser: 'User-ID',
+    imagesURL: buildImages(4),
+    permissions: buildPermissions()
+  },
+  {
+    assigned_users: 7,
+    name: 'Manager',
+    createdByRole: 'RoleName',
+    createdByUser: 'User-ID',
+    imagesURL: buildImages(7),
+    permissions: buildPermissions()
+  },
+  {
+    assigned_users: 5,
+    name: 'Users',
+    createdByRole: 'RoleName',
+    createdByUser: 'User-ID',
+    imagesURL: buildImages(5),
+    permissions: buildPermissions()
+  },
+  {
+    assigned_users: 3,
+    name: 'Support',
+    createdByRole: 'RoleName',
+    createdByUser: 'User-ID',
+    imagesURL: buildImages(3),
+    permissions: buildPermissions()
+  },
+  {
+    assigned_users: 2,
+    name: 'Restricted User',
+    createdByRole: 'RoleName',
+    createdByUser: 'User-ID',
+    imagesURL: buildImages(2),
+    permissions: buildPermissions()
+  }
 ]
 
 class Role extends LocalFsDB {
@@ -174,8 +144,7 @@ class Role extends LocalFsDB {
 
   findAll() {
     return {
-      data,
-      rolesArr
+      roles
     }
   }
 }

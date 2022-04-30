@@ -4,26 +4,37 @@ export default function makeRoleDB({ makeRole, model }) {
       await model.create({
         id: role.id,
         name: role.name,
+        createdByRole: role.createdByRole,
+        createdByUser: role.createdByUser,
         permissions: role.permissions
       })
     },
 
     async getRole({ id = '', name = '' }) {
-      return 'role'
+      const role = id ?
+        await model.findById(id) :
+        await model.findOne({ name: name })
+      return role ? makeRole(role) : null
     },
 
-    async updateRole(role) {
-      await model.update({})
+    async updateRole(role, query = { name: 'operator', createdByUser: '#1234' }) {
+      await model.findOneAndUpdate(query, {
+        id: role.id,
+        name: role.name,
+        createdByRole: role.createdByRole,
+        createdByUser: role.createdByUser,
+        permissions: role.permissions
+      })
     },
 
-    deleteRole(roleId) {
-      model.delete(roleId)
+    async deleteRole(roleId) {
+      await model.findByIdAndDelete(roleId)
     },
 
-    async listRoles() {
-      const roles = await model.findAll()
-      return roles
+    async listRoles(query = { name: 'installer', createdByUser: '#1234' }) {
+      // const roles = await model.find(query)
       // return roles.map((role) => makeRole(role))
+      return model.findAll() // FIXME: update this later to return roles
     },
   })
 }

@@ -3,31 +3,47 @@ export default function makeUsersDB({ makeUser, model }) {
     async addUser(user) {
       await model.create({
         id: user.id,
+        roleName: user.roleName,
+        roleId: user.roleId,
         email: user.email,
+        fullName: user.fullName,
+        description: user.description,
         passwordHash: user.passwordHash,
-        displayName: user.displayName,
-        isVerified: user.isVerified,
         createdAt: user.createdAt,
-        role: user.role,
+        isAdmin: user.isAdmin
       })
     },
 
     async getUser({ id = '', email = '' }) {
-      return 'user'
+      const user = id ?
+        await model.findById(id) :
+        await model.findOne({ email: email })
+      return user ? makeUser(user) : null
     },
 
-    async updateUser(user) {
-      await model.update({
+    async updateUser(user, query = { email: 'basic@gmail.com' }) {
+      await model.findOneAndUpdate(query, {
+        id: user.id,
+        roleName: user.roleName,
+        roleId: user.roleId,
         email: user.email,
+        fullName: user.fullName,
+        description: user.description,
+        passwordHash: user.passwordHash,
+        createdAt: user.createdAt
       })
     },
 
-    deleteUser(userId) {
-      model.delete(userId)
+    async deleteUser({ id = '', email = '' }) {
+      id ?
+      await model.findByIdAndDelete(id) :
+      await model.deleteOne({ email: email })
     },
 
-    async listUsers() {
-      const users = await model.findAll()
+    async listUsers(query = { fullName: 'john doe' }) {
+      const users = query ?
+        await model.find(query) :
+        await model.find({}) // find all documents
       return users.map((user) => makeUser(user))
     },
   })
