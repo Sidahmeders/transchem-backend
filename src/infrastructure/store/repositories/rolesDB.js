@@ -18,14 +18,15 @@ export default function makeRoleDB({ makeRole, model }) {
       return role ? makeRole(role) : null
     },
 
-    async updateRole(role, query = { name: 'operator', createdByUser: '#1234' }) {
-      await model.findOneAndUpdate(query, {
-        id: role.id,
+    async updateRole(role, query = { name: 'someRoleName', createdByUser: '#1234' }) {
+      const update = {
         name: role.name,
-        createdByRole: role.createdByRole,
-        createdByUser: role.createdByUser,
         permissions: role.permissions
-      })
+      }
+      const updatedRole = query.id ?
+        await model.findByIdAndUpdate(query.id, update) :
+        await model.findOneAndUpdate(query, update)
+      return makeRole(updatedRole)
     },
 
     async deleteRole(roleId) {

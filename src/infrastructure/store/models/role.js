@@ -160,7 +160,10 @@ class Role extends LocalFsDB {
     })
   }
   
-  findOne() {}
+  findOne(query) {
+    const result = this.find(query)
+    return result[0]
+  }
 
   find(query) {
     return new Promise((resolve) => {
@@ -176,10 +179,39 @@ class Role extends LocalFsDB {
       }, this.#latency)
     })
   }
-
+  
   findAll() {
     return new Promise((resolve) => {
       setTimeout(() => resolve(roles), this.#latency)
+    })
+  }
+
+  findByIdAndUpdate(id, update) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const index = roles.findIndex((role) => role.id == id)
+        const updatedRole = Object.assign(roles[index], update)
+        roles.splice(index, 1, updatedRole)
+        resolve(updatedRole)
+      }, this.#latency)
+    })
+  }
+
+  findOneAndUpdate(query, update) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Object.keys(query) === 0) reject('query is empty')
+        roles.forEach((role, index) => {
+          let isValid = true
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === role[k] && query[v] === query[v]))
+          if (isValid) {
+            const updatedRole = Object.assign(role, update)
+            roles.splice(index, 1, updatedRole)
+            resolve(Object.assign(role, updatedRole))
+          }
+        })
+        resolve(null)
+      }, this.#latency)
     })
   }
 }
