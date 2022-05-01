@@ -1,4 +1,5 @@
 import LocalFsDB from '../../fake-db/LocalFsDB.js'
+import { buildImages, buildPermissions } from '../../../utils.js'
 
 // ** Vars
 const permissions = [
@@ -85,13 +86,6 @@ const permissions = [
   }
 ]
 
-const buildImages = (count) => new Array(count).fill('https://pbs.twimg.com/profile_images/598503127629762562/iFySk-lp_400x400.jpg')
-
-const buildPermissions = () => JSON.parse(JSON.stringify(permissions)).map((permission) => {
-  const newActions = Object.keys(permission.actions).reduce((prev, curr) => ({...prev, [curr]: Boolean(Math.round(Math.random() * 1))}), {})  
-  return Object.assign(permission, { actions: newActions })
-})
-
 const roles = [
   {
     id: '#1234567',
@@ -109,7 +103,7 @@ const roles = [
     createdByRole: 'Administrator',
     createdByUser: '#1234567',
     imagesURL: buildImages(7),
-    permissions: buildPermissions()
+    permissions: buildPermissions(permissions)
   },
   {
     id: '#45',
@@ -118,7 +112,7 @@ const roles = [
     createdByRole: 'Administrator',
     createdByUser: '#1234567',
     imagesURL: buildImages(5),
-    permissions: buildPermissions()
+    permissions: buildPermissions(permissions)
   },
   {
     id: '#63',
@@ -127,7 +121,7 @@ const roles = [
     createdByRole: 'Administrator',
     createdByUser: '#1234567',
     imagesURL: buildImages(3),
-    permissions: buildPermissions()
+    permissions: buildPermissions(permissions)
   },
   {
     id: '#89',
@@ -136,7 +130,7 @@ const roles = [
     createdByRole: 'Administrator',
     createdByUser: '#1234567',
     imagesURL: buildImages(2),
-    permissions: buildPermissions()
+    permissions: buildPermissions(permissions)
   }
 ]
 
