@@ -3,6 +3,7 @@ export default function makeRoleDB({ makeRole, model }) {
     async addRole(role) {
       await model.create({
         id: role.id,
+        imagesURL: role.imagesURL,
         name: role.name,
         createdByRole: role.createdByRole,
         createdByUser: role.createdByUser,
