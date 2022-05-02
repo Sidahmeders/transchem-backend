@@ -1,4 +1,4 @@
-import { getUniqueId, buildImages } from '../../utils.js'
+import { getUniqueId, buildImages } from '../../infrastructure/utils.js'
 
 import buildMakeUser from './makeUser.js'
 import buildMakeRole from './makeRole.js'

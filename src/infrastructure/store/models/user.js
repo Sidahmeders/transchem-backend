@@ -1,9 +1,9 @@
 import LocalFsDB from '../../fake-db/LocalFsDB.js'
 
 class User extends LocalFsDB {
-  constructor(user) {
+  constructor() {
     super()
-    this.user = user
+    this.document = []
   }
 }
 

@@ -1,18 +1,25 @@
 import { admin_ability, owner_ability, installer_ability, operator_ability } from '../../constants/abilities.js'
+// infrastructure
+import { hashPassword } from '../../infrastructure/utils.js'
 import { usersDB, rolesDB } from '../../infrastructure/store/index.js'
-import { makeRole } from '../../domain/entities/index.js'
+// domain entities
+import { makeUser, makeRole } from '../../domain/entities/index.js'
 
-// Controllers Import
-import makeRegister from './register.js'
-import makeLogin from './login.js'
-import makeListRoles from './list-roles.js'
-import makeAddRoles from './add-roles.js'
-import makeUpdateRoles from './update-roles.js'
+// ** authentication controllers
+import makeRegister from './authentication/register.js'
+import makeLogin from './authentication/login.js'
+// ** access control controllers
+import makeListRoles from './accessControl/list-roles.js'
+import makeAddRoles from './accessControl/add-roles.js'
+import makeUpdateRoles from './accessControl/update-roles.js'
 
-const register = makeRegister({ usersDB })
-const login = makeLogin({ admin_ability, owner_ability, installer_ability, operator_ability })
-const listRoles = makeListRoles({ rolesDB })
-const addRoles = makeAddRoles({ rolesDB, makeRole })
-const updateRoles = makeUpdateRoles({ rolesDB })
+export const authentication = {
+  register: makeRegister({ usersDB, makeUser, hashPassword }),
+  login: makeLogin({ admin_ability, owner_ability, installer_ability, operator_ability })
+}
 
-export { login, register, listRoles, addRoles, updateRoles }
+export const accessControl = {
+  listRoles: makeListRoles({ rolesDB }),
+  addRoles: makeAddRoles({ rolesDB, makeRole }),
+  updateRoles: makeUpdateRoles({ rolesDB })
+}

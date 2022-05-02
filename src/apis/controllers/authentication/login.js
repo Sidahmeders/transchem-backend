@@ -2,6 +2,7 @@ export default ({ admin_ability, owner_ability, installer_ability, operator_abil
   return async function login(req, res) {
     console.log(req.body)
     const { email, password } = req.body
+    
     try {
       if (!email || !password) throw Error('please fill in the required fields')
       if (typeof email !== 'string') throw Error('email type has to be typeof "string"')
@@ -26,7 +27,7 @@ export default ({ admin_ability, owner_ability, installer_ability, operator_abil
       else if (role === 'operator') res.json({ ...data, ability: operator_ability })
       else res.json({ role: 'test', ability: [] })
     } catch(err) {
-      console.log(err.message)
+      console.log(err)
       res.status(400).json({ message: err.message })
     }
   }

@@ -1,7 +1,7 @@
 export default ({ rolesDB, makeRole }) => {
   return async function addRoles(req, res) {
     const { name, createdByRole, createdByUser, permissions } = req.body
-    
+
     try {
       const newRole = makeRole({
         name,
@@ -13,7 +13,7 @@ export default ({ rolesDB, makeRole }) => {
       
       res.status(200).json(newRole)
     } catch(err) {
-      console.log(err.message)
+      console.log(err)
       res.status(400).json({ message: err.message })
     }
   }

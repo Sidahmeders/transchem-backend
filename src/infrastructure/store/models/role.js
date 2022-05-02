@@ -1,5 +1,5 @@
 import LocalFsDB from '../../fake-db/LocalFsDB.js'
-import { buildImages, buildPermissions } from '../../../utils.js'
+import { buildImages, buildPermissions } from '../../utils.js'
 
 // ** Vars
 const permissions = [
@@ -135,84 +135,9 @@ const roles = [
 ]
 
 class Role extends LocalFsDB {
-  constructor(role) {
+  constructor() {
     super()
-    this.role = role
-  }
-
-  #latency = 10
-
-  create(role) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        roles.push(role)
-        resolve(role)
-      }, this.#latency)
-    })
-  }
-
-  findById(id) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const result = roles.filter((role) => (role.id === id))[0]
-        resolve(result)
-      }, this.#latency)
-    })
-  }
-  
-  findOne(query) {
-    const result = this.find(query)
-    return result[0]
-  }
-
-  find(query) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (Object.keys(query) === 0) resolve(roles)
-        const result = []
-        roles.forEach((role) => {
-          let isValid = true
-          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === role[k] && query[v] === query[v]))
-          if (isValid) result.push(role)
-        })
-        resolve(result)
-      }, this.#latency)
-    })
-  }
-  
-  findAll() {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(roles), this.#latency)
-    })
-  }
-
-  findByIdAndUpdate(id, update) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const index = roles.findIndex((role) => role.id == id)
-        const updatedRole = Object.assign(roles[index], update)
-        roles.splice(index, 1, updatedRole)
-        resolve(updatedRole)
-      }, this.#latency)
-    })
-  }
-
-  findOneAndUpdate(query, update) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (Object.keys(query) === 0) reject('query is empty')
-        roles.forEach((role, index) => {
-          let isValid = true
-          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === role[k] && query[v] === query[v]))
-          if (isValid) {
-            const updatedRole = Object.assign(role, update)
-            roles.splice(index, 1, updatedRole)
-            resolve(Object.assign(role, updatedRole))
-          }
-        })
-        resolve(null)
-      }, this.#latency)
-    })
+    this.document = roles
   }
 }
 

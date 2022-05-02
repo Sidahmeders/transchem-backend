@@ -8,19 +8,18 @@ const USER_ROLES = {
 export default function buildMakeUser({ getUniqueId }) {
   return function makeUser({ 
     id = getUniqueId(),
-    roleName = {},
-    roleId,
     fullName,
     email,
-    description,
     passwordHash,
+    roleName,
+    roleId,
     isVerified = false,
     createdAt = Date.now()
   }) {
     if (!id) throw Error('User must have an id')
     if (!email) throw Error('User must have an email')
     if (!passwordHash) throw Error('User must have a passwordHash')
-    if (!Object.values(USER_ROLES).includes(roleName)) throw Error('User must have a valid roleName')
+    // if (!Object.values(USER_ROLES).includes(roleName)) throw Error('User must have a valid roleName')
 
     return Object.freeze({
       get id() { return id },
@@ -28,7 +27,6 @@ export default function buildMakeUser({ getUniqueId }) {
       get roleId() { return roleId },
       get email() { return email },
       get fullName() { return fullName },
-      get description() { return description },
       get passwordHash() { return passwordHash },
       get createdAt() { return createdAt },
       get isAdmin() { return roleName === USER_ROLES.admin },
