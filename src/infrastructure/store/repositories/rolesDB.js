@@ -18,7 +18,7 @@ export default function makeRoleDB({ makeRole, model }) {
       return role ? makeRole(role) : null
     },
 
-    async updateRole(role, query = { name: 'someRoleName', createdByUser: '#1234' }) {
+    async updateRole(role, query) {
       const update = {
         name: role.name,
         permissions: role.permissions
@@ -33,7 +33,7 @@ export default function makeRoleDB({ makeRole, model }) {
       await model.findByIdAndDelete(roleId)
     },
 
-    async listRoles(query = { createdByRole: 'Administrator', createdByUser: '#1234567' }) {
+    async listRoles(query) {
       const roles = await model.find(query)
       return roles
       // return roles.map((role) => makeRole(role))
