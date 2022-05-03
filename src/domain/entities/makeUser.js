@@ -14,12 +14,13 @@ export default function buildMakeUser({ getUniqueId }) {
     passwordHash,
     roleName,
     roleId,
-    isVerified = false,
+    isAuthorized = false,
     createdAt = Date.now()
   }) {
     if (!id) throw Error('User must have an id')
     if (!email) throw Error('User must have an email')
     if (!passwordHash) throw Error('User must have a passwordHash')
+    if (!roleName || !roleId) throw Error('User must have a valid roleName and roleId')
     // if (!Object.values(USER_ROLES).includes(roleName)) throw Error('User must have a valid roleName')
 
     return Object.freeze({
@@ -31,12 +32,15 @@ export default function buildMakeUser({ getUniqueId }) {
       get phone() { return phone },
       get passwordHash() { return passwordHash },
       get createdAt() { return createdAt },
-      get isVerified() { return isVerified },
+      get isAuthorized() { return isAuthorized },
       get isAdmin() { return roleName === USER_ROLES.admin },
 
-      verify() {
-        isVerified = true
+      giveAccess() {
+        isAuthorized = true
       },
+      removeAccess() {
+        isAuthorized = false
+      }
     })
   }
 }

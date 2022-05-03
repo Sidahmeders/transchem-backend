@@ -12,7 +12,7 @@ const users = [
     phone: '(479) 232-9151',
     email: 'gslixby0@abc.net.au',
     status: 'inactive',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: '',
   },
@@ -28,7 +28,7 @@ const users = [
     phone: '(472) 607-9137',
     email: 'hredmore1@imgur.com',
     status: 'pending',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -44,7 +44,7 @@ const users = [
     phone: '(321) 264-4599',
     email: 'msicely2@who.int',
     status: 'active',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -60,7 +60,7 @@ const users = [
     phone: '(923) 690-6806',
     email: 'crisby3@wordpress.com',
     status: 'inactive',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -76,7 +76,7 @@ const users = [
     phone: '(669) 914-1078',
     email: 'mhurran4@yahoo.co.jp',
     status: 'pending',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -92,7 +92,7 @@ const users = [
     phone: '(958) 973-3093',
     email: 'shalstead5@shinystat.com',
     status: 'active',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: '',
   },
@@ -108,7 +108,7 @@ const users = [
     phone: '(825) 977-8152',
     email: 'bgallemore6@boston.com',
     status: 'pending',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: '',
   },
@@ -124,7 +124,7 @@ const users = [
     phone: '(187) 440-0934',
     email: 'kliger7@vinaora.com',
     status: 'pending',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -140,7 +140,7 @@ const users = [
     phone: '(978) 146-5443',
     email: 'fscotfurth8@dailymotion.com',
     status: 'pending',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -156,7 +156,7 @@ const users = [
     phone: '(589) 284-6732',
     email: 'jbellany9@kickstarter.com',
     status: 'inactive',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -172,7 +172,7 @@ const users = [
     phone: '(176) 532-6824',
     email: 'jwharltona@oakley.com',
     status: 'inactive',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -188,7 +188,7 @@ const users = [
     phone: '(234) 464-0600',
     email: 'shallamb@hugedomains.com',
     status: 'pending',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -204,7 +204,7 @@ const users = [
     phone: '(907) 284-5083',
     email: 'ypottiec@privacy.gov.au',
     status: 'inactive',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -220,7 +220,7 @@ const users = [
     phone: '(167) 135-7392',
     email: 'mkraused@stanford.edu',
     status: 'active',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -236,7 +236,7 @@ const users = [
     phone: '(317) 409-6565',
     email: 'zmcclevertye@soundcloud.com',
     status: 'active',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -252,7 +252,7 @@ const users = [
     phone: '(590) 606-1056',
     email: 'bemblinf@wired.com',
     status: 'active',
-    isVerified: true,
+    isAuthorized: true,
     isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
@@ -268,7 +268,7 @@ const users = [
     phone: '(553) 225-9905',
     email: 'bmylesg@amazon.com',
     status: 'active',
-    isVerified: false,
+    isAuthorized: false,
     isAdmin: false,
     avatar: '',
   }

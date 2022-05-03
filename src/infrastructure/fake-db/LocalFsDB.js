@@ -38,7 +38,7 @@ export default class LocalFsDB {
   findById(id) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const result = this.document.filter((obj) => (obj.id === id))[0]
+        const result = this.document.filter((obj) => (obj.id == id))[0]
         resolve(result)
       }, this.#latency)
     })
