@@ -10,6 +10,7 @@ export default function buildMakeUser({ getUniqueId }) {
     id = getUniqueId(),
     fullName,
     email,
+    phone,
     passwordHash,
     roleName,
     roleId,
@@ -27,8 +28,10 @@ export default function buildMakeUser({ getUniqueId }) {
       get roleId() { return roleId },
       get email() { return email },
       get fullName() { return fullName },
+      get phone() { return phone },
       get passwordHash() { return passwordHash },
       get createdAt() { return createdAt },
+      get isVerified() { return isVerified },
       get isAdmin() { return roleName === USER_ROLES.admin },
 
       verify() {

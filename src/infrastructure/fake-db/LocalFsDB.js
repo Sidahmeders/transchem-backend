@@ -44,9 +44,9 @@ export default class LocalFsDB {
     })
   }
   
-  findOne(query) {
-    const result = this.find(query)
-    return result[0]
+  async findOne(query) {
+    const result = await this.find(query)
+    return Promise.resolve(result[0])
   }
 
   find(query) {

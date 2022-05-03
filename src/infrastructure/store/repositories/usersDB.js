@@ -14,7 +14,7 @@ export default function makeUsersDB({ makeUser, model }) {
       })
     },
 
-    async getUser({ id = '', email = '' }) {
+    async getUser({ id, email }) {
       const user = id ?
         await model.findById(id) :
         await model.findOne({ email: email })
@@ -40,11 +40,11 @@ export default function makeUsersDB({ makeUser, model }) {
       await model.deleteOne({ email: email })
     },
 
-    async listUsers(query = { fullName: 'john doe' }) {
+    async listUsers(query) {
       const users = query ?
         await model.find(query) :
         await model.find({}) // find all documents
-      return users.map((user) => makeUser(user))
+      return users //.map((user) => makeUser(user))
     },
   })
 }

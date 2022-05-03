@@ -1,20 +1,10 @@
 import LocalFsDB from '../../fake-db/LocalFsDB.js'
 
-/**
- * id
- * roleName
- * roleId
- * email
- * fullName
- * passwordHash
- * createdAt
- * isAdmin
- */
-
 const users = [
   {
     id: 1,
     fullName: 'Galen Slixby',
+    passwordHash: '$kf*jFgS8$5',
     roleName: 'editor',
     roleId: 'roleName-ID',
     username: 'gslixby0',
@@ -22,11 +12,14 @@ const users = [
     phone: '(479) 232-9151',
     email: 'gslixby0@abc.net.au',
     status: 'inactive',
+    isVerified: true,
+    isAdmin: false,
     avatar: '',
   },
   {
     id: 2,
     fullName: 'Halsey Redmore',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Skinder PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -35,11 +28,14 @@ const users = [
     phone: '(472) 607-9137',
     email: 'hredmore1@imgur.com',
     status: 'pending',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 3,
     fullName: 'Marjory Sicely',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Oozz PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -48,11 +44,14 @@ const users = [
     phone: '(321) 264-4599',
     email: 'msicely2@who.int',
     status: 'active',
+    isVerified: false,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 4,
     fullName: 'Cyrill Risby',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Oozz PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -61,11 +60,14 @@ const users = [
     phone: '(923) 690-6806',
     email: 'crisby3@wordpress.com',
     status: 'inactive',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 5,
     fullName: 'Maggy Hurran',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Aimbo PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -74,11 +76,14 @@ const users = [
     phone: '(669) 914-1078',
     email: 'mhurran4@yahoo.co.jp',
     status: 'pending',
+    isVerified: false,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 6,
     fullName: 'Silvain Halstead',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Jaxbean PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -87,11 +92,14 @@ const users = [
     phone: '(958) 973-3093',
     email: 'shalstead5@shinystat.com',
     status: 'active',
+    isVerified: false,
+    isAdmin: false,
     avatar: '',
   },
   {
     id: 7,
     fullName: 'Breena Gallemore',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Jazzy PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -100,11 +108,14 @@ const users = [
     phone: '(825) 977-8152',
     email: 'bgallemore6@boston.com',
     status: 'pending',
+    isVerified: false,
+    isAdmin: false,
     avatar: '',
   },
   {
     id: 8,
     fullName: 'Kathryne Liger',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Pixoboo PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -113,11 +124,14 @@ const users = [
     phone: '(187) 440-0934',
     email: 'kliger7@vinaora.com',
     status: 'pending',
+    isVerified: false,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 9,
     fullName: 'Franz Scotfurth',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Tekfly PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -126,11 +140,14 @@ const users = [
     phone: '(978) 146-5443',
     email: 'fscotfurth8@dailymotion.com',
     status: 'pending',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 10,
     fullName: 'Jillene Bellany',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Gigashots PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -139,11 +156,14 @@ const users = [
     phone: '(589) 284-6732',
     email: 'jbellany9@kickstarter.com',
     status: 'inactive',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 11,
     fullName: 'Jonah Wharlton',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Eare PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -152,11 +172,14 @@ const users = [
     phone: '(176) 532-6824',
     email: 'jwharltona@oakley.com',
     status: 'inactive',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 12,
     fullName: 'Seth Hallam',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Yakitri PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -165,11 +188,14 @@ const users = [
     phone: '(234) 464-0600',
     email: 'shallamb@hugedomains.com',
     status: 'pending',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 13,
     fullName: 'Yoko Pottie',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Leenti PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -178,11 +204,14 @@ const users = [
     phone: '(907) 284-5083',
     email: 'ypottiec@privacy.gov.au',
     status: 'inactive',
+    isVerified: false,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 14,
     fullName: 'Maximilianus Krause',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Digitube PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -191,11 +220,14 @@ const users = [
     phone: '(167) 135-7392',
     email: 'mkraused@stanford.edu',
     status: 'active',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 15,
     fullName: 'Zsazsa McCleverty',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Kaymbo PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -204,11 +236,14 @@ const users = [
     phone: '(317) 409-6565',
     email: 'zmcclevertye@soundcloud.com',
     status: 'active',
+    isVerified: false,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 16,
     fullName: 'Bentlee Emblin',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Yambee PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -217,11 +252,14 @@ const users = [
     phone: '(590) 606-1056',
     email: 'bemblinf@wired.com',
     status: 'active',
+    isVerified: true,
+    isAdmin: false,
     avatar: 'https://images.ctfassets.net/juauvlea4rbf/2soPy6PvMaPJjN6z0uOj7L/ee55f82bb3d0203310c7f67d94f616e8/final.jpg'
   },
   {
     id: 17,
     fullName: 'Brockie Myles',
+    passwordHash: '$kf*jFgS8$5',
     company: 'Wikivu PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -230,6 +268,8 @@ const users = [
     phone: '(553) 225-9905',
     email: 'bmylesg@amazon.com',
     status: 'active',
+    isVerified: false,
+    isAdmin: false,
     avatar: '',
   }
 ]

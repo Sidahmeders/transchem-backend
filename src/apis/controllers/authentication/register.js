@@ -5,6 +5,7 @@ export default ({ addUser }) => {
     try {
       if (!fullName || !email) throw Error('please fill in the required fields')
       const newUser = await addUser({ fullName, email, password, phone, role })
+      if (newUser === null) throw Error('please change the user "Email" and try again')
       res.status(200).json(newUser)
     } catch(err) {
       console.log(err)
