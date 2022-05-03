@@ -1,21 +1,10 @@
-export default ({ usersDB, makeUser, hashPassword }) => {
+export default ({ addUser }) => {
   return async function register(req, res) {
-    console.log(req.body)
+    console.log(req.body, 'register')
     const { fullName, email, password, phone, role } = req.body
-    
     try {
       if (!fullName || !email) throw Error('please fill in the required fields')
-
-      const newUser = makeUser({
-        fullName,
-        email,
-        passwordHash: hashPassword(password || '1234abcd#CHEM'),
-        phone,
-        roleName: role.label,
-        roleId: role.id
-      })
-      await usersDB.addUser(newUser)
-
+      const newUser = await addUser({ fullName, email, password, phone, role })
       res.status(200).json(newUser)
     } catch(err) {
       console.log(err)

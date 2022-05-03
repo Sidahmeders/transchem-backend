@@ -11,9 +11,9 @@ export const buildPermissions = (permissions) => JSON.parse(JSON.stringify(permi
   return Object.assign(permission, { actions: newActions })
 })
 
-export const hashPassword = (password) => {
-  const salt = bcrypt.genSaltSync(10)
-  const hash = bcrypt.hashSync(password, salt)
+export const hashPassword = async (password) => {
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(password, salt)
   return String(hash)
 }
 

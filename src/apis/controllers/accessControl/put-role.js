@@ -1,9 +1,9 @@
-export default ({ rolesDB }) => {
-  return async function updateRoles(req, res) {
+export default ({ updateRole }) => {
+  return async function putRole(req, res) {
+    console.log(req.body, 'put-role')
     const { id, name, permissions } = req.body
-    
     try {
-      const updatedRole = await rolesDB.updateRole({ name, permissions }, { id })
+      const updatedRole = await updateRole({ id, name, permissions })
       res.status(200).json(updatedRole)
     } catch(err) {
       console.log(err)

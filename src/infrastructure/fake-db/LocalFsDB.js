@@ -91,7 +91,7 @@ export default class LocalFsDB {
           if (isValid) {
             const updatedRole = Object.assign(obj, update)
             this.document.splice(index, 1, updatedRole)
-            resolve(Object.assign(obj, updatedRole))
+            resolve(updatedRole)
           }
         })
         resolve(null)
