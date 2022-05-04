@@ -4,7 +4,7 @@ const users = [
   {
     id: 1,
     fullName: 'Galen Slixby',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     roleName: 'editor',
     roleId: 'roleName-ID',
     username: 'gslixby0',
@@ -19,7 +19,7 @@ const users = [
   {
     id: 2,
     fullName: 'Halsey Redmore',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Skinder PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -35,7 +35,7 @@ const users = [
   {
     id: 3,
     fullName: 'Marjory Sicely',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Oozz PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -51,7 +51,7 @@ const users = [
   {
     id: 4,
     fullName: 'Cyrill Risby',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Oozz PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -67,7 +67,7 @@ const users = [
   {
     id: 5,
     fullName: 'Maggy Hurran',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Aimbo PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -83,7 +83,7 @@ const users = [
   {
     id: 6,
     fullName: 'Silvain Halstead',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Jaxbean PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -99,7 +99,7 @@ const users = [
   {
     id: 7,
     fullName: 'Breena Gallemore',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Jazzy PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -115,7 +115,7 @@ const users = [
   {
     id: 8,
     fullName: 'Kathryne Liger',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Pixoboo PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -131,7 +131,7 @@ const users = [
   {
     id: 9,
     fullName: 'Franz Scotfurth',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Tekfly PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -147,7 +147,7 @@ const users = [
   {
     id: 10,
     fullName: 'Jillene Bellany',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Gigashots PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -163,7 +163,7 @@ const users = [
   {
     id: 11,
     fullName: 'Jonah Wharlton',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Eare PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -179,7 +179,7 @@ const users = [
   {
     id: 12,
     fullName: 'Seth Hallam',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Yakitri PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -195,7 +195,7 @@ const users = [
   {
     id: 13,
     fullName: 'Yoko Pottie',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Leenti PVT LTD',
     roleName: 'subscriber',
     roleId: 'roleName-ID',
@@ -211,7 +211,7 @@ const users = [
   {
     id: 14,
     fullName: 'Maximilianus Krause',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Digitube PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -227,7 +227,7 @@ const users = [
   {
     id: 15,
     fullName: 'Zsazsa McCleverty',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Kaymbo PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',
@@ -243,7 +243,7 @@ const users = [
   {
     id: 16,
     fullName: 'Bentlee Emblin',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Yambee PVT LTD',
     roleName: 'author',
     roleId: 'roleName-ID',
@@ -259,7 +259,7 @@ const users = [
   {
     id: 17,
     fullName: 'Brockie Myles',
-    passwordHash: '$kf*jFgS8$5',
+    passwordHash: '$2a$12$BjW.uNoBbFVtuCYT4eH4reIky3jU/ZEqAtYHE9eUa.tnW9FD7n95O',
     company: 'Wikivu PVT LTD',
     roleName: 'maintainer',
     roleId: 'roleName-ID',

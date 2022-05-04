@@ -15,7 +15,8 @@ export default function buildMakeUser({ getUniqueId }) {
     roleName,
     roleId,
     isAuthorized = false,
-    createdAt = Date.now()
+    createdAt = Date.now(),
+    avatar
   }) {
     if (!id) throw Error('User must have an id')
     if (!email) throw Error('User must have an email')
@@ -33,6 +34,7 @@ export default function buildMakeUser({ getUniqueId }) {
       get passwordHash() { return passwordHash },
       get createdAt() { return createdAt },
       get isAuthorized() { return isAuthorized },
+      get avatar() { return avatar },
       get isAdmin() { return roleName === USER_ROLES.admin },
 
       giveAccess() {

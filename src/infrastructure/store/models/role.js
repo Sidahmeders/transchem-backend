@@ -4,7 +4,7 @@ import { buildImages, buildPermissions } from '../../utils.js'
 // ** Vars
 const permissions = [
   {
-    name: 'User Management',
+    name: 'users-management',
     actions: {
       read: true,
       create: true,
@@ -20,15 +20,6 @@ const permissions = [
       update: true,
       delete: true,
     }, 
-  },  
-  {
-    name:'Disputes Management',
-     actions: {
-      read: true,
-      create: true,
-      update: true,
-      delete: true,
-    },
   },
   {
     name:'Database Management',
@@ -76,13 +67,22 @@ const permissions = [
     },
   },
   {
-    name:'Payroll',
-     actions: {
+    name: 'home',
+    actions: {
       read: true,
       create: true,
       update: true,
       delete: true,
-    },
+    }
+  },
+  {
+    name: 'second-page',
+    actions: {
+      read: true,
+      create: true,
+      update: true,
+      delete: true,
+    }
   }
 ]
 

@@ -1,7 +1,6 @@
-import { admin_ability, owner_ability, installer_ability, operator_ability } from '../../constants/abilities.js'
 import { userService, roleService } from '../../domain/services/index.js'
 
-const { listUsers, addUser, updateUser } = userService
+const { listUsers, addUser, updateUser, signInUser } = userService
 const { listRoles, addRole, updateRole } = roleService
 
 // ** authentication controllers
@@ -17,7 +16,7 @@ import makePutRole from './accessControl/put-role.js'
 
 export const authentication = {
   register: makeRegister({ addUser }),
-  login: makeLogin({ admin_ability, owner_ability, installer_ability, operator_ability })
+  login: makeLogin({ signInUser })
 }
 
 export const users = {

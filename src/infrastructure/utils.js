@@ -17,8 +17,8 @@ export const hashPassword = async (password) => {
   return String(hash)
 }
 
-export const verifyPassword = async ({ givenPassword, storedPassword }) => {
-  const isMatch = await bcrypt.compare(givenPassword, storedPassword)
+export const verifyPassword = async (rawPassword, passwordHash) => {
+  const isMatch = await bcrypt.compare(rawPassword, passwordHash)
   return Boolean(isMatch)
 }
 
@@ -26,8 +26,8 @@ export const issueToken = (user) => {
   // genrate a jwToken
   const token = jwt.sign(
     {
-      id: user._id,
-      role: user.role
+      id: user.id,
+      email: user.email
     },
     JWT_KEY,
     { expiresIn: '7d'}
