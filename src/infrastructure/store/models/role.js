@@ -88,47 +88,42 @@ const permissions = [
 
 const roles = [
   {
-    id: '#1234567',
-    assigned_users: 4,
+    id: '777',
+    createdByUser: null,
     name: 'Administrator',
-    createdByRole: null,
-    createdByUser: '#1234567',
-    imagesURL: buildImages(4),
+    assigned_users: 1,
+    imagesURL: buildImages(1),
     permissions
   },
   {
-    id: '#13',
+    id: '13',
     assigned_users: 7,
     name: 'Manager',
-    createdByRole: 'Administrator',
-    createdByUser: '#1234567',
+    createdByUser: 'admin-id',
     imagesURL: buildImages(7),
     permissions: buildPermissions(permissions)
   },
   {
-    id: '#45',
+    id: '45',
     assigned_users: 5,
     name: 'Users',
-    createdByRole: 'Administrator',
-    createdByUser: '#1234567',
+    createdByUser: 'admin-id',
     imagesURL: buildImages(5),
     permissions: buildPermissions(permissions)
   },
   {
-    id: '#63',
+    id: '63',
     assigned_users: 3,
     name: 'Support',
-    createdByRole: 'Administrator',
-    createdByUser: '#1234567',
+    createdByUser: 'admin-id',
     imagesURL: buildImages(3),
     permissions: buildPermissions(permissions)
   },
   {
-    id: '#89',
+    id: '89',
     assigned_users: 2,
     name: 'Restricted User',
-    createdByRole: 'Administrator',
-    createdByUser: '#1234567',
+    createdByUser: 'admin-id',
     imagesURL: buildImages(2),
     permissions: buildPermissions(permissions)
   }

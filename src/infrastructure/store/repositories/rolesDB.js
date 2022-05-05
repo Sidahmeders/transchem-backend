@@ -5,16 +5,15 @@ export default function makeRoleDB({ makeRole, model }) {
         id: role.id,
         imagesURL: role.imagesURL,
         name: role.name,
-        createdByRole: role.createdByRole,
         createdByUser: role.createdByUser,
         permissions: role.permissions
       })
     },
 
-    async getRole({ id = '', name = '' }) {
-      const role = id ?
-        await model.findById(id) :
-        await model.findOne({ name: name })
+    async getRole(query) {
+      const role = query.id ?
+        await model.findById(query.id) :
+        await model.findOne(query)
       return role ? makeRole(role) : null
     },
 

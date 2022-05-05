@@ -1,11 +1,10 @@
 export default ({ addRole }) => {
   return async function postRole(req, res) {
     console.log(req.body, 'post-role')
-    const { name, createdByRole, createdByUser, permissions } = req.body
+    const { name, createdByUser, permissions } = req.body
     try {
       const newRole = await addRole({
         name,
-        createdByRole,
         createdByUser,
         permissions
       })

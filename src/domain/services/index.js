@@ -10,16 +10,18 @@ import makeSignInUser from './users/signIn-user.js'
 import makeListRoles from "./roles/list-roles.js"
 import makeAddRole from "./roles/add-role.js"
 import makeUpdateRole from "./roles/update-role.js"
+import makeBuildAbility from './roles/build-ability.js'
 
 export const userService = {
   listUsers: makeListUsers({ usersDB }),
   addUser: makeAddUser({ makeUser, usersDB, hashPassword }),
   updateUser: makeUpdateUser({ makeUser, usersDB }),
-  signInUser: makeSignInUser({ usersDB, verifyPassword, issueToken })
+  signInUser: makeSignInUser({ usersDB, rolesDB, verifyPassword, issueToken })
 }
 
 export const roleService = {
   listRoles: makeListRoles({ rolesDB }),
   addRole: makeAddRole({ makeRole, rolesDB }),
-  updateRole: makeUpdateRole({ rolesDB })
+  updateRole: makeUpdateRole({ rolesDB }),
+  buildAbility: makeBuildAbility({ rolesDB })
 }

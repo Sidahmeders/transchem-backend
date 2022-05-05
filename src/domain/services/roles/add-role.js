@@ -1,8 +1,7 @@
 export default function makeAddRole({ makeRole, rolesDB }) {
-  return async function addRole({ name, createdByRole, createdByUser, permissions }) {
+  return async function addRole({ name, createdByUser, permissions }) {
     const newRole = makeRole({
       name,
-      createdByRole,
       createdByUser,
       permissions
     })

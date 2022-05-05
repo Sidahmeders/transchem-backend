@@ -1,22 +1,16 @@
-const USER_ROLES = {
-  admin: 'ADMIN',
-  owner: 'OWNER',
-  installer: 'INSTALLER',
-  operator: 'OPERATOR'
-}
-
 export default function buildMakeUser({ getUniqueId }) {
   return function makeUser({ 
     id = getUniqueId(),
     fullName,
     email,
+    avatar,
     phone,
+    country,
     passwordHash,
     roleName,
     roleId,
     isAuthorized = false,
-    createdAt = Date.now(),
-    avatar
+    createdAt = Date.now()
   }) {
     if (!id) throw Error('User must have an id')
     if (!email) throw Error('User must have an email')
@@ -35,7 +29,8 @@ export default function buildMakeUser({ getUniqueId }) {
       get createdAt() { return createdAt },
       get isAuthorized() { return isAuthorized },
       get avatar() { return avatar },
-      get isAdmin() { return roleName === USER_ROLES.admin },
+      get isAdmin() { return roleId === '#777' },
+      get country() { return country },
 
       giveAccess() {
         isAuthorized = true

@@ -56,7 +56,7 @@ export default class LocalFsDB {
         const result = []
         this.document.forEach((obj) => {
           let isValid = true
-          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === obj[k] && query[v] === query[v]))
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] == obj[k] && query[v] == query[v]))
           if (isValid) result.push(obj)
         })
         resolve(result)
@@ -74,7 +74,8 @@ export default class LocalFsDB {
     return new Promise((resolve) => {
       setTimeout(() => {
         const index = this.document.findIndex((obj) => obj.id == id)
-        const updatedRole = Object.assign(this.document[index], update)
+        const targetRole = this.document[index]
+        const updatedRole = Object.assign({ ...targetRole }, update)
         this.document.splice(index, 1, updatedRole)
         resolve(updatedRole)
       }, this.#latency)

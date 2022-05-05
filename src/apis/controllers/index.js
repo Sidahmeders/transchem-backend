@@ -1,7 +1,7 @@
 import { userService, roleService } from '../../domain/services/index.js'
 
 const { listUsers, addUser, updateUser, signInUser } = userService
-const { listRoles, addRole, updateRole } = roleService
+const { listRoles, addRole, updateRole, buildAbility } = roleService
 
 // ** authentication controllers
 import makeRegister from './authentication/register.js'
@@ -16,7 +16,7 @@ import makePutRole from './accessControl/put-role.js'
 
 export const authentication = {
   register: makeRegister({ addUser }),
-  login: makeLogin({ signInUser })
+  login: makeLogin({ signInUser, buildAbility })
 }
 
 export const users = {

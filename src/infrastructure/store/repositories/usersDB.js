@@ -28,7 +28,7 @@ export default function makeUsersDB({ makeUser, model }) {
       const users = query ?
         await model.find(query) :
         await model.find({}) // find all documents
-      return users //.map((user) => makeUser(user))
+      return users.map((user) => makeUser(user))
     },
   })
 }

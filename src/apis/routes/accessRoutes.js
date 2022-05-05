@@ -6,6 +6,6 @@ const { getRoles, postRole, putRole } = accessControl
 
 router.get('/roles', getRoles)
 router.post('/roles', postRole)
-router.put('/roles', putRole)
+router.put('/roles/:id', putRole)
 
 export default router

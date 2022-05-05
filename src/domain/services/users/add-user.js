@@ -3,7 +3,7 @@ export default function makeAddUser({ makeUser, usersDB, hashPassword }) {
     const user = await usersDB.getUser({ email })
     if (user) return Promise.resolve(null)
     
-    const passwordHash = await hashPassword(password || '1234abcd#CHEM')
+    const passwordHash = await hashPassword(password || '123456')
     const newUser = makeUser({
       fullName,
       email,
