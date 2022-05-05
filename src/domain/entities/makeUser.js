@@ -3,7 +3,7 @@ export default function buildMakeUser({ getUniqueId }) {
     id = getUniqueId(),
     fullName,
     email,
-    avatar,
+    avatar = 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
     phone,
     country,
     passwordHash,
@@ -16,7 +16,6 @@ export default function buildMakeUser({ getUniqueId }) {
     if (!email) throw Error('User must have an email')
     if (!passwordHash) throw Error('User must have a passwordHash')
     if (!roleName || !roleId) throw Error('User must have a valid roleName and roleId')
-    // if (!Object.values(USER_ROLES).includes(roleName)) throw Error('User must have a valid roleName')
 
     return Object.freeze({
       get id() { return id },
