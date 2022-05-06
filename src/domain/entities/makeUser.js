@@ -28,7 +28,7 @@ export default function buildMakeUser({ getUniqueId }) {
       get createdAt() { return createdAt },
       get isAuthorized() { return isAuthorized },
       get avatar() { return avatar },
-      get isAdmin() { return roleId === '#777' },
+      get isAdmin() { return roleId === '777' },
       get country() { return country },
 
       giveAccess() {
