@@ -2,7 +2,7 @@ import { userService, roleService, siteService } from '../../domain/services/ind
 
 const { listUsers, addUser, updateUser, signInUser } = userService
 const { listRoles, addRole, updateRole, buildAbility } = roleService
-const { listSites } = siteService
+const { listSites, addSite } = siteService
 
 // ** authentication controllers
 import makeRegister from './authentication/register.js'
@@ -16,6 +16,7 @@ import makePostRole from './accessControl/post-role.js'
 import makePutRole from './accessControl/put-role.js'
 // ** sites controllers
 import makeGetSites from './sites/get-sites.js'
+import makePostSite from './sites/post-site.js'
 
 export const authentication = {
   register: makeRegister({ addUser }),
@@ -34,5 +35,6 @@ export const accessControl = {
 }
 
 export const sites = {
-  getSites: makeGetSites({ listSites })
+  getSites: makeGetSites({ listSites }),
+  postSite: makePostSite({ addSite })
 }

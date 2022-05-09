@@ -5,42 +5,6 @@ const features = [
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [-77.034084142948, 38.909671288923],
-    },
-    properties: {
-      phoneFormatted: '(202) 234-7336',
-      phone: '2022347336',
-      address: '1471 P St NW',
-      city: 'Washington DC',
-      country: 'United States',
-      crossStreet: 'at 15th St NW',
-      postalCode: '20005',
-      state: 'D.C.',
-      id: 0,
-    },
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-77.049766, 38.900772],
-    },
-    properties: {
-      phoneFormatted: '(202) 507-8357',
-      phone: '2025078357',
-      address: '2221 I St NW',
-      city: 'Washington DC',
-      country: 'United States',
-      crossStreet: 'at 22nd St NW',
-      postalCode: '20037',
-      state: 'D.C.',
-      id: 1,
-    },
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
       coordinates: [-77.043929, 38.910525],
     },
     properties: {
@@ -193,25 +157,7 @@ const features = [
       state: 'PA',
       id: 10,
     },
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-77.043959498405, 38.903883387232],
-    },
-    properties: {
-      phoneFormatted: '(202) 331-3355',
-      phone: '2023313355',
-      address: '1901 L St. NW',
-      city: 'Washington DC',
-      country: 'United States',
-      crossStreet: 'at 19th St',
-      postalCode: '20036',
-      state: 'D.C.',
-      id: 11,
-    },
-  },
+  }
 ]
 
 class Site extends LocalFsDB {

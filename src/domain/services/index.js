@@ -13,6 +13,7 @@ import makeUpdateRole from "./roles/update-role.js"
 import makeBuildAbility from './roles/build-ability.js'
 
 import makeListSites from './sites/list-sites.js'
+import makeAddSite from './sites/addSite.js'
 
 export const userService = {
   listUsers: makeListUsers({ usersDB }),
@@ -29,5 +30,6 @@ export const roleService = {
 }
 
 export const siteService = {
-  listSites: makeListSites({ sitesDB })
+  listSites: makeListSites({ sitesDB }),
+  addSite: makeAddSite({ makeSite, sitesDB })
 }
