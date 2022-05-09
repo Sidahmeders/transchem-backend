@@ -1,4 +1,4 @@
-export default function makeRoleDB({ makeRole, model }) {
+export default function makeRolesDB({ makeRole, model }) {
   return Object.freeze({
     async addRole(role) {
       await model.create({
