@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-const JWT_KEY = 'some-strong-key'
+import MomentJs from './lib/moment.js'
 
 export const getUniqueId = () => `id::${Date.now()}::${Math.floor(Math.random() * 99999)}`
 
@@ -22,20 +22,17 @@ export const verifyPassword = async (rawPassword, passwordHash) => {
   return Boolean(isMatch)
 }
 
-export const issueToken = (user) => {
-  // genrate a jwToken
-  const token = jwt.sign(
-    {
-      id: user.id,
-      email: user.email
-    },
-    JWT_KEY,
-    { expiresIn: '7d'}
-  )
-  return token
+export const issueJwt = (userId, expires, type, secret) => {
+  const payload = {
+    sub: userId,
+    iat: MomentJs.unix(),
+    exp: MomentJs.unix(expires),
+    type,
+  }
+  return jwt.sign(payload, secret)
 }
 
-export const verifyToken = (token) => {
-  const decodedToken = jwt.verify(token, JWT_KEY)
-  return decodedToken
+export const verifyJwt = (token, secret) => {
+  const payload = jwt.verify(token, secret)
+  return payload
 }

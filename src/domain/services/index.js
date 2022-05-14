@@ -1,6 +1,7 @@
 import { makeUser, makeRole, makeSite } from '../entities/index.js'
 import { usersDB, rolesDB, sitesDB } from '../../infrastructure/store/index.js'
-import { hashPassword, verifyPassword, issueToken } from '../../infrastructure/utils.js'
+import { hashPassword, verifyPassword } from '../../infrastructure/utils.js'
+import { generateAuthTokens } from'../../infrastructure/services/index.js'
 
 import makeListUsers from './users/list-users.js'
 import makeAddUser from "./users/add-user.js"
@@ -19,7 +20,7 @@ export const userService = {
   listUsers: makeListUsers({ usersDB }),
   addUser: makeAddUser({ makeUser, usersDB, hashPassword }),
   updateUser: makeUpdateUser({ makeUser, usersDB }),
-  signInUser: makeSignInUser({ usersDB, rolesDB, verifyPassword, issueToken })
+  signInUser: makeSignInUser({ usersDB, rolesDB, verifyPassword, generateAuthTokens })
 }
 
 export const roleService = {
