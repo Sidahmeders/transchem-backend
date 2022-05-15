@@ -38,13 +38,13 @@ export default class LocalFsDB {
   findById(id) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const result = this.document.filter((obj) => (obj.id == id))[0]
+        const result = this.document.filter((doc) => (doc.id == id))[0]
         resolve(result)
       }, this.#latency)
     })
   }
   
-  async findOne(query) {
+  async findOne(query) {    
     const result = await this.find(query)
     return Promise.resolve(result[0])
   }
@@ -54,10 +54,10 @@ export default class LocalFsDB {
       setTimeout(() => {
         if (Object.keys(query) === 0) resolve(this.document)
         const result = []
-        this.document.forEach((obj) => {
+        this.document.forEach((doc) => {
           let isValid = true
-          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] == obj[k] && query[v] == query[v]))
-          if (isValid) result.push(obj)
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] == doc[k] && query[v] == query[v]))
+          if (isValid) result.push(doc)
         })
         resolve(result)
       }, this.#latency)
@@ -73,11 +73,11 @@ export default class LocalFsDB {
   findByIdAndUpdate(id, update) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const index = this.document.findIndex((obj) => obj.id == id)
-        const targetRole = this.document[index]
-        const updatedRole = Object.assign({ ...targetRole }, update)
-        this.document.splice(index, 1, updatedRole)
-        resolve(updatedRole)
+        const index = this.document.findIndex((doc) => doc.id == id)
+        const targetDoc = this.document[index]
+        const updatedDoc = Object.assign({ ...targetDoc }, update)
+        this.document.splice(index, 1, updatedDoc)
+        resolve(updatedDoc)
       }, this.#latency)
     })
   }
@@ -86,17 +86,36 @@ export default class LocalFsDB {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (Object.keys(query) === 0) reject('query is empty')
-        this.document.forEach((obj, index) => {
+        this.document.forEach((doc, index) => {
           let isValid = true
-          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === obj[k] && query[v] === query[v]))
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === doc[k] && query[v] === query[v]))
           if (isValid) {
-            const updatedRole = Object.assign(obj, update)
-            this.document.splice(index, 1, updatedRole)
-            resolve(updatedRole)
+            const updatedDoc = Object.assign({ ...doc }, update)
+            this.document.splice(index, 1, updatedDoc)
+            resolve(updatedDoc)
           }
         })
         resolve(null)
       }, this.#latency)
+    })
+  }
+
+  updateMany(query, update) {
+    return new Promise((resolve, reject) => {
+      const updatedTokensList = []
+      setTimeout(() => {
+        if (Object.keys(query) === 0) reject('query is empty')
+        this.document.forEach((doc, index) => {
+          let isValid = false
+          Object.entries(query).forEach(([k, v]) => (isValid &= query[k] === doc[k] && query[v] === query[v]))
+          if (isValid) {
+            const updatedToken = Object.assign({ ...doc }, update)
+            this.document.splice(index, 1, updatedToken)
+            updatedTokensList.push(updatedToken)
+          }
+        }, this.#latency)
+        resolve(updatedTokensList)
+      })
     })
   }
 }

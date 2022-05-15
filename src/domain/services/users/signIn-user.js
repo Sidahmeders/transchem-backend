@@ -5,7 +5,7 @@ export default function makeSignInUser({ usersDB, rolesDB, verifyPassword, gener
     const isValidPassword = await verifyPassword(password, user.passwordHash)
     if (!isValidPassword) return Promise.resolve(null)
     const userRole = await rolesDB.getRole({ id: user.roleId })
-    const authTokens = await generateAuthTokens(user)
+    const authTokens = await generateAuthTokens(user.id)
     return Promise.resolve({ ...user, userRole, authTokens })
   }
 }

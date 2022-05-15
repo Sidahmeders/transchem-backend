@@ -1,4 +1,5 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 import cors from './src/config/cors.js'
 import apis from './src/apis/routes/index.js'
 
@@ -7,6 +8,7 @@ const server = express()
 server.use(cors)
 server.use(express.json())
 server.use(express.urlencoded({ extended: false }))
+server.use(cookieParser())
 
 server.use('/api', apis)
 

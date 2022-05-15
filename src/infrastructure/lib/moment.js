@@ -18,10 +18,10 @@ export default class MomentJs extends Date {
 
   /**
    * @param {Number} number
-   * @param {('minute' | 'hour' | 'day' | 'week' | 'month' | 'year')} string
+   * @param {('second' | 'minute' | 'hour' | 'day' | 'week' | 'month' | 'year')} string
    */
   static add(number, string) {
-    const validParams = ['minute', 'hour', 'day', 'week', 'month', 'year']
+    const validParams = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
     if (!validParams.includes(string)) {
       throw Error(`unvalid string field. got: "${string}" but expected: [${validParams.toString().replace(/,/g, ' | ')}]`)
     }

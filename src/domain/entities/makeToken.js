@@ -2,7 +2,7 @@ export default function buildMakeToken({ getUniqueId }) {
   return function makeToken({
     id = getUniqueId(),
     token,
-    user,
+    userId,
     expires,
     type,
     blacklisted = false
@@ -11,7 +11,7 @@ export default function buildMakeToken({ getUniqueId }) {
     return Object.freeze({
       get id() { return id },
       get token() { return token },
-      get user() { return user },
+      get userId() { return userId },
       get expires() { return expires },
       get type() { return type },
       get blacklisted() { return blacklisted }

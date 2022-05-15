@@ -1,7 +1,7 @@
+import { verifyAccessToken, verifyRefreshToken, generateAuthTokens } from '../../infrastructure/services/index.js'
+
 import makeCheckAuthorization from './checkAuthorization.js'
 
-const { default: { verifyToken } } = await import('../../infrastructure/services/index.js')
-
-const checkAuthorization = makeCheckAuthorization({ verifyToken })
+const checkAuthorization = makeCheckAuthorization({ verifyAccessToken, verifyRefreshToken, generateAuthTokens })
 
 export { checkAuthorization }
