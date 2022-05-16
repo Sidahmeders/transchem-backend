@@ -11,7 +11,7 @@ export default function makeUsersDB({ makeUser, model }) {
       return user ? makeUser(user) : null
     },
 
-    async updateUser(user, query) {
+    async updateUser(query, user) {
       const updatedUser = query.id ?
         await model.findByIdAndUpdate(query.id, user) :
         await model.findOneAndUpdate(query, user)

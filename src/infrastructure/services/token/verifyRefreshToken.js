@@ -12,11 +12,11 @@ export default function makeVerifyRefreshToken({ tokensDB, jwtConfig, verifyJwt 
 
     // handle Automatic reuse detection by blacklisting all tokens
     if (tokenDoc.blacklisted) {
-      tokensDB.updateManyTokens({ blacklisted: true }, { user })
+      tokensDB.updateManyTokens({ userId }, { blacklisted: true })
       return null
     }
     // safeguards your app from replay attacks by generating a new refresh token
-    const blacklistedToken = await tokensDB.updateToken({ blacklisted: true }, { id: tokenDoc.id })
+    const blacklistedToken = await tokensDB.updateToken({ id: tokenDoc.id }, { blacklisted: true })
     return blacklistedToken
   }
 }

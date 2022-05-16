@@ -11,7 +11,7 @@ export default function makeUpdateUser({ makeUser, usersDB }) {
       roleId: roleId || user.roleId,
       isAuthorized
     }))
-    await usersDB.updateUser(updatedUser, { id })
+    await usersDB.updateUser({ id }, updatedUser)
     return Promise.resolve(updatedUser)
   }
 }

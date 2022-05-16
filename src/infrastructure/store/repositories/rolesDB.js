@@ -17,7 +17,7 @@ export default function makeRolesDB({ makeRole, model }) {
       return role ? makeRole(role) : null
     },
 
-    async updateRole(role, query) {
+    async updateRole(query, role) {
       const update = {
         name: role.name,
         permissions: role.permissions
