@@ -9,22 +9,20 @@ export default ({ signInUser, buildAbility }) => {
       if (user === null) throw Error('please verify your "email" and "password" and try again')
 
       const ability = user.isAdmin ?
-        [{ action: "manage", subject: "all" }] :
+        [{ action: 'manage', subject: 'all' }] :
         await buildAbility({ role: user.userRole }) ||
         [{action: 'read', subject: 'home'}] // FIXME: THIS IS JUST FOR TESTING A BUG ON THE FRONTEND.
       
       const { access, refresh } = user.authTokens
       delete user.authTokens
-      const accessAge = Date.parse(access.expires) - Date.now()
-      const refreshAge = Date.parse(refresh.expires) - Date.now()
-
-      res.cookie("accessToken", access.token, { httpOnly: true, maxAge: accessAge })
-      res.cookie("refreshToken", refresh.token, { httpOnly: true, maxAge: refreshAge })
       
-      res.status(200).json({ ...user, ability })
+      res.cookie('accessToken', access.token, { path: '/', httpOnly: true, maxAge: access.expiry })
+      res.cookie('refreshToken', refresh.token, { path: '/', httpOnly: true, maxAge: refresh.expiry })
+
+      res.code(200).send({ ...user, ability })
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }

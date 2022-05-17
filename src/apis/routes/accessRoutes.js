@@ -1,11 +1,28 @@
-import { Router } from 'express'
+import { checkAuthorization } from '../middlewares/index.js'
 import { accessControl } from '../controllers/index.js'
 
-const router = Router()
-const { getRoles, postRole, putRole } = accessControl
+const accessRoutes = [
+  {
+    method: 'GET',
+    url: '/api/access/roles',
+    preHandler: checkAuthorization,
+    handler: accessControl.getRoles,
+    // schema: {}
+  },
+  {
+    method: 'POST',
+    url: '/api/access/roles',
+    preHandler: checkAuthorization,
+    handler: accessControl.postRole,
+    // schema: {}
+  },
+  {
+    method: 'PUT',
+    url: '/api/access/roles/:id',
+    preHandler: checkAuthorization,
+    handler: accessControl.putRole,
+    // schema: {}
+  }
+]
 
-router.get('/roles', getRoles)
-router.post('/roles', postRole)
-router.put('/roles/:id', putRole)
-
-export default router
+export default accessRoutes

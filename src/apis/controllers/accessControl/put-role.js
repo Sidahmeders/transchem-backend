@@ -5,10 +5,10 @@ export default ({ updateRole }) => {
     const { name, permissions } = req.body
     try {
       const updatedRole = await updateRole({ id, name, permissions })
-      res.status(200).json(updatedRole)
+      res.code(200).send(updatedRole)
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }

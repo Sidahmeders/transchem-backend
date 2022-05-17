@@ -3,10 +3,10 @@ export default ({ listSites }) => {
     console.log(req.query, 'get-sites')
     try {
       const sitesList = await listSites()
-      res.status(200).json(sitesList)
+      res.code(200).send(sitesList)
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }

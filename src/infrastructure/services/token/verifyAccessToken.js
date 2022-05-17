@@ -4,7 +4,7 @@
  * @returns {Promise<payload | string>}
  */
 export default function makeVerifyAccessToken({ jwtConfig, verifyJwt }) {
-  return async function verifyAccessToken(token) {
+  return function verifyAccessToken(token) {
     const payload = verifyJwt(token, jwtConfig.JWT_SECRET)
     return payload
   }

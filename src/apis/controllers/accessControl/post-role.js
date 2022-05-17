@@ -8,10 +8,10 @@ export default ({ addRole }) => {
         createdByUser,
         permissions
       })
-      res.status(200).json(newRole)
+      res.code(200).send(newRole)
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }

@@ -13,10 +13,10 @@ export default ({ addUser }) => {
         roleId
       })
       if (newUser === null) throw Error('please change the user "Email" and try again')
-      res.status(200).json(newUser)
+      res.code(200).send(newUser)
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }

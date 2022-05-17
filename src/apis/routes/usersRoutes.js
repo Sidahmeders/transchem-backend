@@ -1,10 +1,21 @@
-import { Router } from 'express'
+import { checkAuthorization } from '../middlewares/index.js'
 import { users } from '../controllers/index.js'
 
-const router = Router()
-const { getUsers, putUser } = users
+const usersRoutes = [
+  {
+    method: 'GET',
+    url: '/api/users',
+    preHandler: checkAuthorization,
+    handler: users.getUsers,
+    // schema: {}
+  },
+  {
+    method: 'POST',
+    url: '/api/users/:id',
+    preHandler: checkAuthorization,
+    handler: users.putUser,
+    // schema: {}
+  }
+]
 
-router.get('/', getUsers)
-router.put('/:id', putUser)
-
-export default router
+export default usersRoutes

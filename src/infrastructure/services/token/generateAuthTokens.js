@@ -22,11 +22,11 @@ export default function makeGenerateAuthTokens({ MomentJs, makeToken, tokensDB, 
     return {
       access: {
         token: accessToken,
-        expires: accessTokenExpires,
+        expiry: (Date.parse(accessTokenExpires) - Date.now()) / 1000
       },
       refresh: {
         token: refreshToken,
-        expires: refreshTokenExpires,
+        expiry: (Date.parse(refreshTokenExpires) - Date.now()) / 1000
       },
     }
   }

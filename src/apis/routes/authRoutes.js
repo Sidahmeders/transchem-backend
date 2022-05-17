@@ -1,10 +1,18 @@
-import { Router } from 'express'
 import { authentication } from '../controllers/index.js'
 
-const router = Router()
-const { register, login } = authentication
+const authRoutes = [
+  {
+    method: 'POST',
+    url: '/api/auth/login',
+    handler: authentication.login,
+    // schema: {}
+  },
+  {
+    method: 'POST',
+    url: '/api/auth/register',
+    handler: authentication.register,
+    // schema: {}
+  }
+]
 
-router.post('/register', register)
-router.post('/login', login)
-
-export default router
+export default authRoutes

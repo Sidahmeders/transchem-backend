@@ -13,10 +13,10 @@ export default ({ updateUser }) => {
         roleId,
         isAuthorized
       })
-      res.status(200).json(updatedUser)
+      res.code(200).send(updatedUser)
     } catch(err) {
       console.log(err)
-      res.status(400).json({ message: err.message })
+      res.code(400).send({ message: err.message })
     }
   }
 }
