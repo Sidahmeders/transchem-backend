@@ -10,7 +10,7 @@ const usersRoutes = [
     // schema: {}
   },
   {
-    method: 'POST',
+    method: 'PUT',
     url: '/api/users/:id',
     preHandler: checkAuthorization,
     handler: users.putUser,
